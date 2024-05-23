@@ -1,0 +1,22 @@
+accelerate launch \
+    --config_file="./configs/single_gpu.yml" \
+    train.py \
+    --seed="2023" \
+    --pretrained_model_name_or_path="/root/autodl-tmp/ReVersion/stable-diffusion-2-1" \
+    --train_data_dir="./reversion_benchmark_v1/inside" \
+    --placeholder_token="<R>" \
+    --initializer_token="and" \
+    --train_batch_size="4" \
+    --gradient_accumulation_steps="4" \
+    --max_train_steps="3000" \
+    --learning_rate='2.5e-04' --scale_lr \
+    --lr_scheduler="constant" \
+    --lr_warmup_steps="0" \
+    --output_dir="./experiments/inside_0.001" \
+    --save_steps="1000" \
+    --importance_sampling \
+    --denoise_loss_weight="1.0" \
+    --steer_loss_weight="0.001" \
+    --num_positives="4" \
+    --temperature="0.07" \
+    --only_save_embeds

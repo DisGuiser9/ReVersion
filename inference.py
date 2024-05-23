@@ -127,7 +127,7 @@ def main():
         embed_path = os.path.join(args.model_id, 'learned_embeds.bin')
         learned_embeds = torch.load(embed_path)
         
-        pipe = StableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5",torch_dtype=torch.float16).to("cuda")
+        pipe = StableDiffusionPipeline.from_pretrained("/root/autodl-tmp/ReVersion/stable-diffusion-2-1",torch_dtype=torch.float16).to("cuda")
         
         text_encoder = pipe.text_encoder
         tokenizer = pipe.tokenizer
